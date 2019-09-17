@@ -34,11 +34,19 @@ class ViewController: UIViewController {
         return mealTextField
     }()
 
+    let mealImageView: UIImageView = {
+        let mealImageView = UIImageView(image: #imageLiteral(resourceName: "defaultPhoto.png"))
+        
+        mealImageView.translatesAutoresizingMaskIntoConstraints = false
+        return mealImageView
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.addSubview(mealTextView)
         view.addSubview(mealTextField)
+        view.addSubview(mealImageView)
 
 //        mealTextField.backgroundColor = .red
 //        mealTextView.backgroundColor = .blue
@@ -59,6 +67,13 @@ class ViewController: UIViewController {
             mealTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: spacing),
             mealTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -spacing),
             mealTextField.heightAnchor.constraint(equalToConstant: 30)
+        ])
+
+        NSLayoutConstraint.activate([
+            mealImageView.topAnchor.constraint(equalTo: mealTextField.bottomAnchor, constant: spacing),
+            mealImageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: spacing),
+            mealImageView.widthAnchor.constraint(equalToConstant: 240),
+            mealImageView.heightAnchor.constraint(equalToConstant: 240)
         ])
     }
 
