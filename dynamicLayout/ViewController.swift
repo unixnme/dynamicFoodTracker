@@ -17,17 +17,31 @@ class ViewController: UIViewController {
         let mealTextView = UITextView()
         mealTextView.text = "Meal Name"
         mealTextView.font = .boldSystemFont(ofSize: 15)
+        mealTextView.textAlignment = .left
         mealTextView.isEditable = false
         mealTextView.isScrollEnabled = false
         mealTextView.translatesAutoresizingMaskIntoConstraints = false
         return mealTextView
     }()
 
+    let mealTextField: UITextField = {
+        let mealTextField = UITextField()
+        mealTextField.placeholder = "Enter meal name"
+        mealTextField.font = .systemFont(ofSize: 15)
+        mealTextField.textAlignment = .left
+        mealTextField.returnKeyType = .done
+        mealTextField.translatesAutoresizingMaskIntoConstraints = false
+        return mealTextField
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.addSubview(mealTextView)
+        view.addSubview(mealTextField)
 
+//        mealTextField.backgroundColor = .red
+//        mealTextView.backgroundColor = .blue
         positionViews()
 
     }
@@ -37,7 +51,14 @@ class ViewController: UIViewController {
             mealTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: spacing),
             mealTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: spacing),
             mealTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -spacing),
-            mealTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -spacing)
+            mealTextView.heightAnchor.constraint(equalToConstant: 30)
+        ])
+
+        NSLayoutConstraint.activate([
+            mealTextField.topAnchor.constraint(equalTo: mealTextView.bottomAnchor, constant: spacing),
+            mealTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: spacing),
+            mealTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -spacing),
+            mealTextField.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
 
