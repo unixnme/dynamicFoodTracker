@@ -34,9 +34,9 @@ class ViewController: UIViewController {
         return mealTextField
     }()
 
-    let mealImageView: UIImageView = {
-        let mealImageView = UIImageView(image: #imageLiteral(resourceName: "defaultPhoto.png"))
-        
+    let mealImageView: UIButton = {
+        let mealImageView = UIButton()
+        mealImageView.setImage(#imageLiteral(resourceName: "defaultPhoto.png"), for: .normal)
         mealImageView.translatesAutoresizingMaskIntoConstraints = false
         return mealImageView
     }()
