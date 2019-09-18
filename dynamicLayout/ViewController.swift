@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     let spacing: CGFloat = 16
 
@@ -48,7 +48,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         view.addSubview(mealTextView)
         view.addSubview(mealTextField)
         view.addSubview(mealImageView)
-
+        mealTextField.delegate = self
 
 //        mealTextField.backgroundColor = .red
 //        mealTextView.backgroundColor = .blue
@@ -87,7 +87,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(imagePickerController, animated: true, completion: nil)
     }
 
-    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
@@ -95,7 +95,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismiss(animated: true, completion: nil)
     }
 
-    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        mealTextField.resignFirstResponder()
+        return true
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        mealTextView.text = mealTextField.text
     }
 }
