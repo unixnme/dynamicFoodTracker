@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D48BF104BB17887FC880B27B /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48BFFE0C608B88DD16DB3FB /* RatingControl.swift */; };
 		D48BF72465633FA679481465 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D48BF64A974D5840DF722D8A /* Main.storyboard */; };
 		D48BFA04E7CEFEFF521941BF /* dynamicLayoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48BFE1A1874A1C7E3A36CA1 /* dynamicLayoutUITests.swift */; };
 		D48BFA82FFAB723C20BF9111 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D48BF67362A106EBA9CF88EA /* LaunchScreen.storyboard */; };
@@ -35,6 +36,7 @@
 		D48BFA3A6590E7A854C0A3E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		D48BFC03B3D612DA41D129E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D48BFE1A1874A1C7E3A36CA1 /* dynamicLayoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dynamicLayoutUITests.swift; sourceTree = "<group>"; };
+		D48BFFE0C608B88DD16DB3FB /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		D48BFFEA1ACB18D28B7C4E3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +76,7 @@
 				D48BFC03B3D612DA41D129E1 /* AppDelegate.swift */,
 				D48BF64A974D5840DF722D8A /* Main.storyboard */,
 				D48BF9EDC3D75B4C121E2CD6 /* ViewController.swift */,
+				D48BFFE0C608B88DD16DB3FB /* RatingControl.swift */,
 			);
 			path = dynamicLayout;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			files = (
 				D48BFCCE8E0117A734C26A87 /* AppDelegate.swift in Sources */,
 				D48BFC6CD8B56559D6F62960 /* ViewController.swift in Sources */,
+				D48BF104BB17887FC880B27B /* RatingControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
