@@ -42,11 +42,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return mealImageView
     }()
 
-    let ratingControl: RatingControl = {
-        let ratingControl = RatingControl()
-        ratingControl.translatesAutoresizingMaskIntoConstraints = false
-        return ratingControl
-    }()
+    let ratingControl = RatingControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,12 +50,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         view.addSubview(mealTextView)
         view.addSubview(mealTextField)
         view.addSubview(mealImageView)
-        view.addSubview(ratingControl)
+        positionViews()
+
+        ratingControl.setupButtons(view: self.view, leftAnchor: mealImageView.leftAnchor, topAnchor: mealImageView.bottomAnchor)
         mealTextField.delegate = self
 
 //        mealTextField.backgroundColor = .red
 //        mealTextView.backgroundColor = .blue
-        positionViews()
 
     }
 
@@ -83,13 +80,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             mealImageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: spacing),
             mealImageView.widthAnchor.constraint(equalToConstant: 240),
             mealImageView.heightAnchor.constraint(equalToConstant: 240)
-        ])
-
-        NSLayoutConstraint.activate([
-            ratingControl.topAnchor.constraint(equalTo: mealImageView.bottomAnchor, constant: spacing),
-            ratingControl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: spacing),
-            ratingControl.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -spacing),
-            ratingControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -spacing)
         ])
     }
 
