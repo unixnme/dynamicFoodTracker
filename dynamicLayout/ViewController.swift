@@ -38,6 +38,7 @@ class ViewController: UIViewController {
         let mealImageView = UIButton()
         mealImageView.setImage(#imageLiteral(resourceName: "defaultPhoto.png"), for: .normal)
         mealImageView.translatesAutoresizingMaskIntoConstraints = false
+        mealImageView.addTarget(self, action: #selector(imageClicked(_:)), for: .touchUpInside)
         return mealImageView
     }()
 
@@ -47,6 +48,7 @@ class ViewController: UIViewController {
         view.addSubview(mealTextView)
         view.addSubview(mealTextField)
         view.addSubview(mealImageView)
+
 
 //        mealTextField.backgroundColor = .red
 //        mealTextView.backgroundColor = .blue
@@ -77,4 +79,7 @@ class ViewController: UIViewController {
         ])
     }
 
+    @objc func imageClicked(_ sender: UIButton) {
+        print("clicked")
+    }
 }
