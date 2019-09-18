@@ -7,8 +7,10 @@ import UIKit
 
 class RatingControl: UIStackView {
 
-    let BUTTON_HEIGHT: CGFloat = 44.0
-    let BUTTON_WIDTH: CGFloat = 44.0
+    static let BUTTON_HEIGHT: CGFloat = 44.0
+    static let BUTTON_WIDTH: CGFloat = 44.0
+
+
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,8 +32,8 @@ class RatingControl: UIStackView {
         button.backgroundColor = .red
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            button.heightAnchor.constraint(equalToConstant: BUTTON_HEIGHT),
-            button.widthAnchor.constraint(equalToConstant: BUTTON_WIDTH)
+            button.heightAnchor.constraint(equalToConstant: RatingControl.BUTTON_HEIGHT),
+            button.widthAnchor.constraint(equalToConstant: RatingControl.BUTTON_WIDTH)
         ])
 
         button.addTarget(self, action: #selector(RatingControl.ratingButtonTapped(button:)), for: .touchUpInside)

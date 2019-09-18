@@ -38,7 +38,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let mealImageView = UIButton()
         mealImageView.setImage(#imageLiteral(resourceName: "defaultPhoto.png"), for: .normal)
         mealImageView.translatesAutoresizingMaskIntoConstraints = false
-        mealImageView.addTarget(self, action: #selector(imageClicked(_:)), for: .touchUpInside)
+        mealImageView.addTarget(self, action: #selector(imageClicked(sender:)), for: .touchUpInside)
         return mealImageView
     }()
 
@@ -93,7 +93,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         ])
     }
 
-    @objc func imageClicked(_ sender: UIButton) {
+    @objc func imageClicked(sender: UIButton) {
         self.mealTextField.resignFirstResponder()
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = .photoLibrary
