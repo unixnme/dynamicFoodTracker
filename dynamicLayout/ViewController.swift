@@ -88,11 +88,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        print("image picked")
+        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        mealImageView.setImage(selectedImage, for: .normal)
+        dismiss(animated: true, completion: nil)
     }
 
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        print("image picking cancelled")
-        picker.resignFirstResponder()
+        dismiss(animated: true, completion: nil)
     }
 }
