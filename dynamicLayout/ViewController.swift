@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     let spacing: CGFloat = 16
 
@@ -80,6 +80,19 @@ class ViewController: UIViewController {
     }
 
     @objc func imageClicked(_ sender: UIButton) {
-        print("clicked")
+        self.mealTextField.resignFirstResponder()
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+    }
+
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        print("image picked")
+    }
+
+    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print("image picking cancelled")
+        picker.resignFirstResponder()
     }
 }
