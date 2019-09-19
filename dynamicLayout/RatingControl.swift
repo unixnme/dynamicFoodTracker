@@ -19,7 +19,7 @@ class RatingControl {
         var offset: CGFloat = 0
         for _ in 0..<5 {
             let button = UIButton()
-            button.backgroundColor = .red
+            button.setImage(#imageLiteral(resourceName: "emptyStar"), for: .normal)
             button.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(button)
 
